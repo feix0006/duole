@@ -1,8 +1,8 @@
 name: Build APK
 
-于:
+on:
   push:
-    分支:
+    branches:
       - main
 
 jobs:
