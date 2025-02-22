@@ -12,21 +12,24 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
 
+    # 关键步骤：切换到子文件夹 `duole/`
+    - name: Navigate to project folder
+      run: cd duole
+
     - name: Set up JDK
       uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
 
-    # 新增步骤：授予 gradlew 执行权限（修复 exit code 127）
     - name: Grant Gradle permission
-      run: chmod +x gradlew
+      run: chmod +x gradlew  # 现在路径正确：duole/gradlew
 
     - name: Build APK
-      run: ./gradlew assembleDebug
+      run: ./gradlew assembleDebug  # 在 duole/ 目录下执行
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: app-debug.apk
-        path: app/build/outputs/apk/debug/app-debug.apk
+        path: duole/app/build/outputs/apk/debug/app-debug.apk  # 路径需匹配子目录
