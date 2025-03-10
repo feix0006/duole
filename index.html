@@ -1,120 +1,66 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <title>多乐够级记牌器</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>牌局记录</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>多乐够级记牌器</h1>
-  <table id="cardTable">
-    <thead>
-      <tr>
-        <th>剩余牌数</th>
-        <th>大王</th>
-        <th>小王</th>
-        <th>2</th>
-        <th>A</th>
-        <th>K</th>
-        <th>Q</th>
-        <th>J</th>
-        <th>10</th>
-        <th>9</th>
-        <th>8</th>
-        <th>7</th>
-        <th>6</th>
-        <th>5</th>
-        <th>4</th>
-        <th>3</th>
-      </tr>
-      <tr id="remainingRow">
-        <td>剩余牌数</td>
-        <td id="remaining-17">4</td>
-        <td id="remaining-16">4</td>
-        <td id="remaining-15">16</td>
-        <td id="remaining-14">16</td>
-        <td id="remaining-13">16</td>
-        <td id="remaining-12">16</td>
-        <td id="remaining-11">16</td>
-        <td id="remaining-10">16</td>
-        <td id="remaining-9">16</td>
-        <td id="remaining-8">16</td>
-        <td id="remaining-7">16</td>
-        <td id="remaining-6">16</td>
-        <td id="remaining-5">16</td>
-        <td id="remaining-4">8</td>
-        <td id="remaining-3">6</td>
-      </tr>
-    </thead>
-    <tbody id="playersTable">
-      <!-- 玩家行将在JavaScript中动态生成 -->
-    </tbody>
-  </table>
-  <div>
-    <h2>出牌</h2>
-    <label>选择玩家:</label>
-    <select id="playerSelect">
-      <option value="0">对家</option>
-      <option value="1">下联</option>
-      <option value="2">下家</option>
-      <option value="3">自己</option>
-      <option value="4">上家</option>
-      <option value="5">上联</option>
-    </select>
-    <label>选择点数:</label>
-    <select id="cardSelect">
-      <option value="17">大王</option>
-      <option value="16">小王</option>
-      <option value="15">2</option>
-      <option value="14">A</option>
-      <option value="13">K</option>
-      <option value="12">Q</option>
-      <option value="11">J</option>
-      <option value="10">10</option>
-      <option value="9">9</option>
-      <option value="8">8</option>
-      <option value="7">7</option>
-      <option value="6">6</option>
-      <option value="5">5</option>
-      <option value="4">4</option>
-      <option value="3">3</option>
-    </select>
-    <button onclick="playCard()">出牌</button>
-  </div>
-  <div>
-    <h2>加牌</h2>
-    <label>选择玩家:</label>
-    <select id="addPlayerSelect">
-      <option value="0">对家</option>
-      <option value="1">下联</option>
-      <option value="2">下家</option>
-      <option value="3">自己</option>
-      <option value="4">上家</option>
-      <option value="5">上联</option>
-    </select>
-    <label>选择点数:</label>
-    <select id="addCardSelect">
-      <option value="17">大王</option>
-      <option value="16">小王</option>
-      <option value="15">2</option>
-      <option value="14">A</option>
-      <option value="13">K</option>
-      <option value="12">Q</option>
-      <option value="11">J</option>
-      <option value="10">10</option>
-      <option value="9">9</option>
-      <option value="8">8</option>
-      <option value="7">7</option>
-      <option value="6">6</option>
-      <option value="5">5</option>
-      <option value="4">4</option>
-      <option value="3">3</option>
-    </select>
-    <button onclick="addCard()">加牌</button>
-  </div>
-  <div>
-    <button onclick="resetGame()">重置</button>
-  </div>
-  <script src="script.js"></script>
-</body>
-</html>
+    <div id="content">
+        <table id="playersTable">
+            <tr>
+                <th>玩家</th><th>17</th><th>16</th><th>15</th><th>14</th><th>13</th><th>12</th><th>11</th><th>10</th><th>9</th><th>8</th><th>7</th><th>6</th><th>5</th><th>4</th><th>3</th>
+            </tr>
+        </table>
+
+        <div>
+            <label>出牌玩家:</label>
+            <select id="playerSelect">
+                <option value="0">对家</option>
+                <option value="1">下联</option>
+                <option value="2">下家</option>
+                <option value="3">自己</option>
+                <option value="4">上家</option>
+                <option value="5">上联</option>
+            </select>
+            <label>牌:</label>
+            <select id="cardSelect">
+                <option value="17">17</option>
+                <option value="16">16</option>
+                <option value="15">15</option>
+                <option value="14">14</option>
+                <option value="13">13</option>
+                <option value="12">12</option>
+                <option value="11">11</option>
+                <option value="10">10</option>
+                <option value="9">9</option>
+                <option value="8">8</option>
+                <option value="7">7</option>
+                <option value="6">6</option>
+                <option value="5">5</option>
+                <option value="4">4</option>
+                <option value="3">3</option>
+            </select>
+            <button onclick="playCard()">出牌</button>
+        </div>
+
+        <div>
+            <label>加牌玩家:</label>
+            <select id="addPlayerSelect">
+                <option value="0">对家</option>
+                <option value="1">下联</option>
+                <option value="2">下家</option>
+                <option value="3">自己</option>
+                <option value="4">上家</option>
+                <option value="5">上联</option>
+            </select>
+            <label>牌:</label>
+            <select id="addCardSelect">
+                <option value="17">17</option>
+                <option value="16">16</option>
+                <option value="15">15</option>
+                <option value="14">14</option>
+                <option value="13">13</option>
+                <option value="12">12</option>
+                <option value="11">11
